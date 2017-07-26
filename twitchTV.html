@@ -8,16 +8,20 @@
         <p>Testing TwitchTV api</p>
     </body>
     <script>
-        var myHeaders = new Headers();
+        const streamers = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "Pandagirl91", "miss_rage", "RobotCaleb", "noobs2ninjas", "SaltyBet"]
+                
+        const callTwitchAPI = action => streamer => {
+           const endpoint =  `https://wind-bow.glitch.me/twitch-api/${action}/${streamer}/`;
+            return fetch(endpoint)
+                   .then(blob => blob.json())
+        }
 
-        var myInit = { method: 'GET',
-               headers: myHeaders,
-               mode: 'cors',
-               cache: 'default' };
+        const callTwitchChannel = callTwitchAPI('channels');
+        const callTwitchStream = callTwitchAPI('streams');
 
-        const endpoint = 'https://wind-bow.glitch.me/twitch-api/users/freecodecamp/';
-        fetch(endpoint, myInit)
-        .then(blob => blob.json())
-        .then(json => console.log(json));
+        const usersInfo = Promise.all(
+            streamers.map(x => Promise.all(
+                [callTwitchChannel(x), callTwitchStream(x)])
+        )).then(usersInfo => console.log(usersInfo));
     </script>
 </html>
