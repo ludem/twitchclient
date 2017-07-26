@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <p>Testing TwitchTV api</p>
+    </body>
+    <script>
+        var myHeaders = new Headers();
+
+        var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+
+        const endpoint = 'https://wind-bow.glitch.me/twitch-api/users/freecodecamp/';
+        fetch(endpoint, myInit)
+        .then(blob => blob.json())
+        .then(json => console.log(json));
+    </script>
+</html>
