@@ -269,11 +269,11 @@
             <div class="cardImg" style="background-image: url(${user.profile_banner});">
             </div>
             <div class="cardContent">
-                <a href="${user.url}"><div class="cardStatus">${user.status}</div></a>
+                <a href="${user.url}" target="_tab"><div class="cardStatus">${user.status}</div></a>
                 ${isOnline(user) ? streamDiv(user.stream) : ''}
             </div>
             <div class="cardFooter">
-                <a href="${user.url}">GO TO CHANNEL</a>
+                <a href="${user.url}" target="_tab">GO TO CHANNEL</a>
             </div>
         </div>
         `
