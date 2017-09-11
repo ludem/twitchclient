@@ -322,7 +322,7 @@
     };
 
     const tabs = document.querySelectorAll('.menu p');
-    tabs.forEach(tab => tab.addEventListener('click', addStyle));
+    Array.from(tabs).forEach(tab => tab.addEventListener('click', addStyle));
 
 
     showAllUsers();
