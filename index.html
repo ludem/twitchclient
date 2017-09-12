@@ -300,7 +300,6 @@
     const offlineUsers = allUsers.then(users => users.filter(isOffline));
 
     const createUserDiv = users => {
-        console.log(users);
         const userDiv = users.reduce((totalDiv, user) => (totalDiv += userCard(user)), '');
         mainContent.innerHTML = userDiv;
     }
@@ -321,8 +320,8 @@
         this.classList.add('active')
     };
 
-    const tabs = document.querySelectorAll('.menu p');
-    Array.from(tabs).forEach(tab => tab.addEventListener('click', addStyle));
+    const tabs = Array.from(document.querySelectorAll('.menu p'));
+    tabs.forEach(tab => tab.addEventListener('click', addStyle));
 
 
     showAllUsers();
